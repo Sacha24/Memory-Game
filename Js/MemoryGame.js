@@ -1,30 +1,41 @@
 function newGame() {
-  document.getElementById("button").style.display = "none";
-  var images = document.getElementsByClassName("memory-card");
-  for (var i = 0; i < images.length; i++) {
-    images[i].style.display = "block";
-  }
+  $("button").css("display", "none");
+  var images = $(".memory-card");
+  images.css("display", "block");
 }
-document.getElementById("button").addEventListener("click", newGame);
+$("button").on("click", newGame);
 
-var counter = 0;
-function flipCard(event) {
-  var cardTarget = event.currentTarget.style;
-  if ((cardTarget.transform = "rotateY(180deg)")) {
-    counter++;
+var flippedCard = 0;
+var cardsPicked = [];
+function flipCard1(event) {
+  var cardTarget = event.currentTarget;
+  cardsPicked.push(cardTarget.firstElementChild.src);
+  if ((cardTarget.style.transform = "rotateY(180deg)")) {
+    flippedCard++;
   }
-  if (counter === 2) {
-    document.getElementsByClassName("memory-card").disabled = true;
-    counter = 0;
+  if (flippedCard === 2) {
+    checkIfMatch();
+    $(document.body).css("pointer-events", "none");
     setTimeout(function() {
-      cardTarget.transform = "rotateY(0deg)";
-    }, 3000);
+      $(document.body).css("pointer-events", "auto");
+      $(".memory-card").css({ transform: "rotateY(" + 0 + "deg)" });
+    }, 2000);
+    flippedCard = 0;
   }
 }
+var card = $(".memory-card");
+card.on("click", flipCard1);
 
-var card = document.getElementsByClassName("memory-card");
-for (var i = 0; i < card.length; i++) {
-  card[i].addEventListener("click", flipCard);
+function checkIfMatch() {
+  if(cardsPicked[0] === cardsPicked[1]){
+    
+    console.log("Match !")
+  }
+  else{
+    console.log("No Macth")
+  }
+  console.log(cardsPicked)
+  cardsPicked.splice(0,2);
 }
 
 var src = [
@@ -41,19 +52,13 @@ var src = [
   "images/Barton.jpg",
   "images/black widow.jpg"
 ];
+
 function shuffle() {
-  var shuffleArray = src.sort(function(){return 0.5 - Math.random()})
-  $("#img1").attr("src", shuffleArray[0])
-  $("#img2").attr("src", shuffleArray[1])
-  $("#img3").attr("src", shuffleArray[2])
-  $("#img4").attr("src", shuffleArray[3])
-  $("#img5").attr("src", shuffleArray[4])
-  $("#img6").attr("src", shuffleArray[5])
-  $("#img7").attr("src", shuffleArray[6])
-  $("#img8").attr("src", shuffleArray[7])
-  $("#img9").attr("src", shuffleArray[8])
-  $("#img10").attr("src", shuffleArray[9])
-  $("#img11").attr("src", shuffleArray[10])
-  $("#img12").attr("src", shuffleArray[11])
+  var shuffleArray = src.sort(function() {
+    return 0.5 - Math.random();
+  });
+  for (var i = 0; i <= shuffleArray.length; i++) {
+    $("#img" + i).attr("src", shuffleArray[i]);
+  }
 }
 document.getElementById("button").addEventListener("click", shuffle);
