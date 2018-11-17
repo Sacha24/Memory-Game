@@ -1,6 +1,8 @@
 function newGame() {
   $("#NewGame").css("display", "none");
   $("#levels").css("display", "block");
+  var mySound = new Audio("marvel.mp3");
+  mySound.play();
 }
 $("#NewGame").on("click", newGame);
 
@@ -15,6 +17,15 @@ function pickLevelEasy() {
 }
 $("#easy").on("click", pickLevelEasy);
 
+function displayImgEasy() {
+  $("#ironMan").css("display", "block");
+}
+$("#easy").on("mouseover", displayImgEasy);
+function hideImgEasy() {
+  $("#ironMan").css("display", "none");
+}
+$("#easy").on("mouseout", hideImgEasy);
+
 function pickLevelMedium() {
   var images = $(".memory-card");
   images.css("display", "block");
@@ -26,6 +37,15 @@ function pickLevelMedium() {
 }
 $("#medium").on("click", pickLevelMedium);
 
+function displayImgMedium() {
+  $("#captainA").css("display", "block");
+}
+$("#medium").on("mouseover", displayImgMedium);
+function hideImgMedium() {
+  $("#captainA").css("display", "none");
+}
+$("#medium").on("mouseout", hideImgMedium);
+
 function pickLevelHard() {
   var images = $(".memory-card");
   images.css("display", "block");
@@ -34,6 +54,15 @@ function pickLevelHard() {
   $("#wrongGuesses").css("left", "220px");
 }
 $("#hard").on("click", pickLevelHard);
+
+function displayImgHard() {
+  $("#thor").css("display", "block");
+}
+$("#hard").on("mouseover", displayImgHard);
+function hideImgHard() {
+  $("#thor").css("display", "none");
+}
+$("#hard").on("mouseout", hideImgHard);
 
 var flippedCard = 0;
 var wrongGuesses = 0;
@@ -56,7 +85,7 @@ var flipCard = function(event) {
       setTimeout(function() {
         $(".memory-card.unmatch").css("pointer-events", "auto");
         $(".memory-card.unmatch").css({ transform: "rotateY(" + 0 + "deg)" });
-      }, 2000);
+      }, 1000);
     } else {
       endGame.push(cardTarget);
       $(".memory-card.unmatch").css("pointer-events", "auto");
@@ -71,8 +100,12 @@ var flipCard = function(event) {
     setTimeout(function() {
       var images = $(".memory-card");
       images.fadeTo(1000, 0);
+    }, 2000);
+    setTimeout(function() {
+      $("#result").html("You won !");
     }, 3000);
     setTimeout(function() {
+      $("#result").css("display", "none");
       $("#restart").css("display", "block");
     }, 5000);
   }
