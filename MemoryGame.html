@@ -11,12 +11,20 @@
       integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" media="screen" href="css/MemoryGame.css"/>
+    <link rel="stylesheet" media="screen" href="css/MemoryGame.css" />
   </head>
   <body>
     <section class="memory-game">
-      <button id="button">New Game</button>
-      <!-- <div id="ifMatch"></div> -->
+      <button id="NewGame">Start game</button>
+      <button id="restart">Restart</button>
+      <div> 
+        <ul id="levels">
+          <li id="easy">Easy</li>
+          <li id="medium">Medium</li>
+          <li id="hard">Hard</li>
+        </ul>
+      </div>
+      <div id="wrongGuesses"></div>
       <div class="memory-card unmatch">
         <img class="front-face" id="img0"/>
         <div class="back-face"></div>
@@ -25,7 +33,6 @@
         <img class="front-face" id="img1"/>
         <div class="back-face"></div>
       </div>
-
       <div class="memory-card unmatch">
         <img class="front-face" id="img2"/>
         <div class="back-face"></div>
@@ -34,7 +41,6 @@
         <img class="front-face" id="img3"/>
         <div class="back-face"></div>
       </div>
-
       <div class="memory-card unmatch">
         <img class="front-face" id="img4"/>
         <div class="back-face"></div>
@@ -43,7 +49,6 @@
         <img class="front-face" id="img5"/>
         <div class="back-face"></div>
       </div>
-
       <div class="memory-card unmatch">
         <img class="front-face" id="img6"/>
         <div class="back-face"></div>
@@ -52,7 +57,6 @@
         <img class="front-face" id="img7"/>
         <div class="back-face"></div>
       </div>
-
       <div class="memory-card unmatch">
         <img class="front-face" id="img8"/>
         <div class="back-face"></div>
@@ -61,13 +65,44 @@
         <img class="front-face" id="img9"/>
         <div class="back-face"></div>
       </div>
-
       <div class="memory-card unmatch">
         <img class="front-face" id="img10"/>
         <div class="back-face"></div>
       </div>
       <div class="memory-card unmatch">
         <img class="front-face" id="img11"/>
+        <div class="back-face"></div>
+      </div>
+      <div class="memory-card unmatch" id="card12">
+        <img class="front-face" id="img12"/>
+        <div class="back-face"></div>
+      </div>
+      <div class="memory-card unmatch" id="card13">
+        <img class="front-face" id="img13"/>
+        <div class="back-face"></div>
+      </div>
+      <div class="memory-card unmatch" id="card14">
+        <img class="front-face" id="img14"/>
+        <div class="back-face"></div>
+      </div>
+      <div class="memory-card unmatch" id="card15">
+        <img class="front-face" id="img15"/>
+        <div class="back-face"></div>
+      </div>
+      <div class="memory-card unmatch" id="card16">
+        <img class="front-face" id="img16"/>
+        <div class="back-face"></div>
+      </div>
+      <div class="memory-card unmatch" id="card17">
+        <img class="front-face" id="img17"/>
+        <div class="back-face"></div>
+      </div>
+      <div class="memory-card unmatch" id="card18">
+        <img class="front-face" id="img18"/>
+        <div class="back-face"></div>
+      </div>
+      <div class="memory-card unmatch" id="card19">
+        <img class="front-face" id="img19"/>
         <div class="back-face"></div>
       </div>
     </section>
